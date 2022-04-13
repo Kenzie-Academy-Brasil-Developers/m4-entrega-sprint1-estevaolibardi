@@ -17,7 +17,7 @@ const updateUserService = (uuid, email, name) => {
 
   users[userIndex] = { ...users[userIndex], ...updatedUser };
 
-  const patchUser = {
+  return {
     name,
     email,
     isAdm: users[userIndex].isAdm,
@@ -25,8 +25,6 @@ const updateUserService = (uuid, email, name) => {
     updatedOn: users[userIndex].updatedOn,
     uuid: users[userIndex].uuid,
   };
-
-  return patchUser;
 };
 
 export default updateUserService;

@@ -10,7 +10,6 @@ export default class LoginController {
       return response.json(login);
     } catch (err) {
       return response.status(400).json({
-        status: "error",
         message: err.message,
       });
     }

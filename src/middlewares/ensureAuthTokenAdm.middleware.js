@@ -18,15 +18,14 @@ const ensureAuthTokenAdmMiddleware = (request, response, next) => {
     }
 
     const { sub, isAdm, email } = decoded;
-    const user = users.find((user) => user.email === email);
 
+    const user = users.find((user) => user.email === email);
     request.user = user;
 
-    console.log(isAdm);
     if (!isAdm) {
       return response
         .status(401)
-        .json({ status: "error", message: "Unauthorized" });
+        .json({ status: "error", message: "Unauthorizeddd" });
     }
 
     next();

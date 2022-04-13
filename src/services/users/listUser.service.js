@@ -1,6 +1,6 @@
 import users from "../../database";
 
-const listUsersService = (users) => {
+const listUsersService = () => {
   return users;
 };
 

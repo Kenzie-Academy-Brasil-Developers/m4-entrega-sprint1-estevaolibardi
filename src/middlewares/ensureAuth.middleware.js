@@ -19,8 +19,6 @@ const ensureAuthMiddleware = (request, response, next) => {
         .json({ status: "error", message: "Invalid Token" });
     }
 
-    // console.log(decoded);
-
     const { email } = decoded;
     const user = users.find((user) => user.email === email);
 

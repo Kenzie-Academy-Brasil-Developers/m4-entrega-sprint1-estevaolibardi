@@ -56,7 +56,7 @@ export default class UsersController {
     const { name, email } = request.body;
 
     try {
-      const user = updateUserService(uuid, email);
+      const user = updateUserService(uuid, email, name);
 
       return response.json(user);
     } catch (err) {

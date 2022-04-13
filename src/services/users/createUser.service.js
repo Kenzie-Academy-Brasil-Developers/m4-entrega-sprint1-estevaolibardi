@@ -18,7 +18,14 @@ const createUserService = async ({ name, email, password, isAdm = false }) => {
 
   users.push(user);
 
-  return user;
+  return {
+    uuid: user.uuid,
+    name,
+    email,
+    isAdm,
+    createdOn: new Date(),
+    updatedOn: new Date(),
+  };
 };
 
 export default createUserService;
