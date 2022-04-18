@@ -1,15 +1,13 @@
 import users from "../../database";
 
-const updateUserService = (uuid, email, name) => {
-  // let user = users.find((item) => item.uuid === uuid);
-
+const updateUserService = (id, email, name) => {
   const updatedUser = {
     email,
     name,
     updatedOn: new Date(),
   };
 
-  const userIndex = users.findIndex((e) => e.uuid === uuid);
+  const userIndex = users.findIndex((e) => e.id === id);
 
   if (userIndex === -1) {
     return "User not found.";
@@ -23,7 +21,7 @@ const updateUserService = (uuid, email, name) => {
     isAdm: users[userIndex].isAdm,
     createdOn: users[userIndex].createdOn,
     updatedOn: users[userIndex].updatedOn,
-    uuid: users[userIndex].uuid,
+    id: users[userIndex].id,
   };
 };
 

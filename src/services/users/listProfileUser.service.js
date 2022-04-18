@@ -1,9 +1,9 @@
 import users from "../../database";
 
 const userProfileService = (user) => {
-  const { name, email, isAdm, createdOn, updatedOn, uuid } = user;
+  const { name, email, isAdm, createdOn, updatedOn, id } = user;
 
-  const newUser = { name, email, isAdm, createdOn, updatedOn, uuid };
+  const newUser = { name, email, isAdm, createdOn, updatedOn, id };
 
   return newUser;
 };

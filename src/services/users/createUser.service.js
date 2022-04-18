@@ -1,5 +1,5 @@
 import users from "../../database";
-import { v4 as uuid } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import * as bcrypt from "bcryptjs";
 
 /* O service e apenas responsavel pela logica */
@@ -13,13 +13,13 @@ const createUserService = async ({ name, email, password, isAdm = false }) => {
     isAdm,
     createdOn: new Date(),
     updatedOn: new Date(),
-    uuid: uuid(),
+    id: uuidv4(),
   };
 
   users.push(user);
 
   return {
-    uuid: user.uuid,
+    id: user.id,
     name,
     email,
     isAdm,

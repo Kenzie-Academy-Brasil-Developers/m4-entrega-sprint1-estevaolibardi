@@ -1,13 +1,13 @@
 import jwt from "jsonwebtoken";
 import users from "../database";
 
-const ensureAuthTokenAdmMiddleware = (request, response, next) => {
+const checkTokenMiddleware = (request, response, next) => {
   let token = request.headers.authorization.split(" ")[1];
 
   if (!token) {
     return response
       .status(401)
-      .json({ status: "error", message: "Missing Authorization Header" });
+      .json({ status: "error", message: "Missing Authorization Headers" });
   }
 
   jwt.verify(token, "secret", (error, decoded) => {
@@ -22,14 +22,8 @@ const ensureAuthTokenAdmMiddleware = (request, response, next) => {
     const user = users.find((user) => user.email === email);
     request.user = user;
 
-    if (!isAdm) {
-      return response
-        .status(401)
-        .json({ status: "error", message: "Unauthorizeddd" });
-    }
-
     next();
   });
 };
 
-export default ensureAuthTokenAdmMiddleware;
+export default checkTokenMiddleware;

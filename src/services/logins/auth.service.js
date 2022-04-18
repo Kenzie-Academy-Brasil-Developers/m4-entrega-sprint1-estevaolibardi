@@ -23,7 +23,7 @@ const authService = async ({ email, password }) => {
     "secret",
     {
       expiresIn: "24h",
-      subject: user.uuid,
+      subject: user.id,
     }
   );
 

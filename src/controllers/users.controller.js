@@ -52,11 +52,11 @@ export default class UsersController {
 
   /* Atualizar */
   update(request, response) {
-    const { uuid } = request.params;
+    const { id } = request.params;
     const { name, email } = request.body;
 
     try {
-      const user = updateUserService(uuid, email, name);
+      const user = updateUserService(id, email, name);
 
       return response.json(user);
     } catch (err) {
@@ -69,13 +69,10 @@ export default class UsersController {
 
   /* Deletar */
   delete(request, response) {
-    let token = request.headers.authorization;
     const { id } = request.params;
 
-    token = token.split(" ")[1];
-
     try {
-      deleteUserService({ id });
+      deleteUserService(id);
       return response
         .status(200)
         .json({ message: "User deleted with success" });

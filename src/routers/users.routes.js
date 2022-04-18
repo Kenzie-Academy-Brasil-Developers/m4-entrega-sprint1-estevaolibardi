@@ -1,20 +1,21 @@
 import { Router } from "express";
 import UsersController from "../controllers/users.controller";
-import verifyEmailAvailabilityMiddleware from "../middlewares/verifyEmailAvailability.middleware";
-import ensureAuthTokenAdmMiddleware from "../middlewares/ensureAuthTokenAdm.middleware";
-import ensureAuthMiddleware from "../middlewares/ensureAuth.middleware";
+import checkEmailAvailabilityMiddleware from "../middlewares/checkEmailAvailability.middleware";
+import checkAdmMiddleware from "../middlewares/checkAdm.middleware";
+import checkTokenMiddleware from "../middlewares/checkToken.middleware";
+import updateDel from "../middlewares/updateDel.middleware";
 
 const usersRouter = Router();
 const usersController = new UsersController();
 
-usersRouter.post("", verifyEmailAvailabilityMiddleware, usersController.store);
-usersRouter.get("", ensureAuthTokenAdmMiddleware, usersController.index);
-usersRouter.get("/profile", ensureAuthMiddleware, usersController.profiler);
-usersRouter.patch(
-  "/:uuid",
-  ensureAuthTokenAdmMiddleware,
-  usersController.update
-);
-usersRouter.delete("/:uuid", ensureAuthMiddleware, usersController.delete);
+usersRouter.post("", checkEmailAvailabilityMiddleware, usersController.store);
+
+usersRouter.use(checkTokenMiddleware);
+
+usersRouter.get("", checkAdmMiddleware, usersController.index);
+usersRouter.get("/profile", usersController.profiler);
+
+usersRouter.patch("/:id", checkAdmMiddleware, usersController.update);
+usersRouter.delete("/:id", checkAdmMiddleware, usersController.delete);
 
 export default usersRouter;
