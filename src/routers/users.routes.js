@@ -3,7 +3,6 @@ import UsersController from "../controllers/users.controller";
 import checkEmailAvailabilityMiddleware from "../middlewares/checkEmailAvailability.middleware";
 import checkAdmMiddleware from "../middlewares/checkAdm.middleware";
 import checkTokenMiddleware from "../middlewares/checkToken.middleware";
-import updateDel from "../middlewares/updateDel.middleware";
 
 const usersRouter = Router();
 const usersController = new UsersController();

@@ -12,9 +12,9 @@ const checkAdmMiddleware = (request, response, next) => {
 
   if (userId !== userIdReq && !user.isAdm) {
     return response.status(401).json({ message: "Unauthorized" });
-  } else {
-    next();
   }
+
+  next();
 
   if (!user.isAdm) {
     return response
