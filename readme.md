@@ -250,7 +250,48 @@ yarn typeorm migration:run -d src/data-source.ts
 [ Voltar para o topo ](#tabela-de-conteúdos)
 
 
-Por enquanto, não foi implementada autenticação.
+Autenticação de token e adiministrador nas rotas:
+- [Users:]
+- 
+    - [POST - /users](Autenticado com: Schema - expressYupMiddleware)
+    - [POST - /users/login](Autenticado com: Schema - expressYupMiddleware)
+    - [GET - /users](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware, verifyAdminMiddleware)
+    - [GET - /users/profile](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware)
+    - [GET - /users/:id](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware, verifyIfItsAdmOrOwnerMiddleware)
+    - [PATCH - /users/:id](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware,verifyIfItsAdmOrOwnerMiddleware, verifyIfYouAreTryingToUpdateOrDeleteAdminUser - Autenticado com: Schema - expressYupMiddleware)
+    - [DELETE - /users/:id](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware, verifyIfItsAdmOrOwnerMiddleware, verifyIfYouAreTryingToUpdateOrDeleteAdminUser)
+    - 
+- [Products:]
+- 
+    - [POST - /products](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware, verifyAdminMiddleware - Autenticado com: Schema - expressYupMiddleware)
+    - [PATCH - /products/:id](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware, verifyAdminMiddleware, - Autenticado com: Schema - expressYupMiddleware)
+    - [DELETE - /products/:id](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware, verifyAdminMiddleware)
+    - 
+- [Orders:]
+- 
+    - [GET - /orders](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware, verifyAdminMiddleware)
+    - [GET - /orders/profile](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware)
+    - [GET - /orders/:id](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware, verifyIfItsAdmOrOwnerOrderMiddleware)
+    - [POST - /orders](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware, - Autenticado com: Schema - expressYupMiddleware)
+    - [PATCH - /orders/:id](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware, verifyIfItsAdmOrOwnerOrderMiddleware - Autenticado com: Schema - expressYupMiddleware)
+    - [DELETE - /orders/:id](Autenticado com: Middleware - verifyTokenAuthenticationMiddleware, verifyIfItsAdmOrOwnerOrderMiddleware)
+    - 
+- [Address:]
+- 
+    - [POST - /address](Autenticado com: Middleware - authTokenMiddleware)
+    - [GET - /address](Autenticado com: Middleware - authTokenMiddleware, verifyAdminMiddleware)
+    - [GET - /address/user_id](Autenticado com: Middleware - authTokenMiddleware, verifyIfItsAdmOrOwnerMiddleware)
+    - [PATCH - /address/:id](Autenticado com: Middleware - authTokenMiddleware, verifyIfItsAdmOrOwnerMiddleware)
+    - [DELETE - /address/:id](Autenticado com: Middleware - authTokenMiddleware, verifyIfItsAdmOrOwnerMiddleware)
+    - 
+- [Cart:]
+    - [POST - /cart](Autenticado com: Middleware - authTokenMiddleware - Autenticado com: Schema - expressYupMiddleware)
+    - [GET - /cart](Autenticado com: Middleware - authTokenMiddleware, verifyAdminMiddleware)
+    - [GET - /cart/profile](Autenticado com: Middleware - authTokenMiddleware, verifyAdminMiddleware)
+    - [GET - /cart/:id](Autenticado com: Middleware - authTokenMiddleware, verifyIfItsAdmOrOwnerMiddleware)
+    - [DELETE - /cart:cartProdId](Autenticado com: Middleware - authTokenMiddleware, verifyIfItsAdmOrOwnerMiddleware)
+    - [DELETE - /cart/removeProd/:cartProdId](Autenticado com: Middleware - authTokenMiddleware, verifyIfItsAdmOrOwnerMiddleware)
+    - 
 
 ---
 
