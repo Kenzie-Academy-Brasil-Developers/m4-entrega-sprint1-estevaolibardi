@@ -303,34 +303,43 @@ Autenticação de token e adiministrador nas rotas:
 
 - [Users](#1-users)
     - [POST - /users](#11-criação-de-usuário)
-    - [GET - /users/login](#12-login-do-usuário)
+    - [POST - /users/login](#12-login-do-usuário)
+    - [GET - /users/profile]
     - [GET - /users](#13-listando-usuários)
     - [GET - /users/:id](#14-listar-usuário-por-id)
     - [UPDATE - /users/:id](#15-atualizar-usuário-por-id)
+    - [DELETE - /users/:id]
 	
 - [Products](#2-produtos)
     - [POST - /products](#21-criação-de-produto)
     - [GET - /products](#22-listar-produtos)
-	  - [GET -  /products/:id](#23-listar-produto-por-id)
-	  - [PATCH -  /products/:id](#24-atualizar-produto-por-id)
+    - [GET -  /products/:id](#23-listar-produto-por-id)
+    - [PATCH -  /products/:id](#24-atualizar-produto-por-id)
+    - [DELETE -  /products/:id]
+    - 
 - [Cart](#3-carrinho)
     - [POST - /cart](#31-adicionar-produto-no-carrinho)
     - [GET - /cart](#32-listar-produtos-de-todos-os-carrinhos)
-	  - [GET -     /cart/:id](#33-listar-produtos-do-carrinho-de-um-único-usuário)
-    - [GET -     /cart/:profile](#34-listar-o-carrinho-de-um-único-usuário-logado)
-    - [DELETE -     /cart/:id](#35-subtrai-a-quantidade-de-um-produto-no-cart) 
+    - [GET - /cart/:id](#33-listar-produtos-do-carrinho-de-um-único-usuário)
+    - [GET - /cart/:profile](#34-listar-o-carrinho-de-um-único-usuário-logado)
+    - [DELETE - /cart/:id](#35-subtrai-a-quantidade-de-um-produto-no-cart) 
+    - [DELETE - /cart/removeProd/:cartProdId]
+    - 
 - [Orders](#4-pedidos)
     - [POST - /orders](#41-criar-pedidos)
     - [GET - /orders](#42-listar-pedidos)
     - [GET - /orders/profile](#43-listar-os-pedidos-do-próprio-usuário)
     - [GET - /order/listuserorder/:user_Id](#44-listar-pedido-de-usuário-específico)
     - [GET - /order/:id](#45-listar-um-pedido-específico)
-    - [PATCH - /order/:id](#46-atualizar-produto-por-id)   
+    - [PATCH - /order/:id](#46-atualizar-produto-por-id)
+    - [DELETE - /order/:id]
+    - 
 - [Address](#5-endereços)
     - [POST - /address](#51-criação-de-endereço)
     - [GET - /address](#52-listando-endereços)
     - [GET - /address/:user_id](#53-listar-apenas-um-endereço)
     - [PATCH - /address/:id](#54-atualizar-os-dados-de-endereço-por-id)
+    - [DELETE - /address/:id]
 
 
 ---
