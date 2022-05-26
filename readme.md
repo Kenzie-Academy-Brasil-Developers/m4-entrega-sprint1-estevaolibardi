@@ -191,13 +191,32 @@
 ## 1. Visão Geral
 
 Visão geral do projeto, um pouco das tecnologias usadas.
-
+- [Dependências padrões:]
 - [NodeJS](https://nodejs.org/en/)
 - [Express](https://expressjs.com/pt-br/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [TypeORM](https://typeorm.io/)
 - [Yup](https://www.npmjs.com/package/yup)
+- Dependências padrões:
+- [Bcryptjs](https://www.npmjs.com/package/bcrypt)
+- [Dontenv]
+- [Ts-node]
+- [Pg]
+- [Jsonwebtoken]
+- [Uuid]
+- [Typeorm]
+- [Reflect-metadata]
+- [Class-transformer]
+- [Express-async-errors]
+- [Express-yup-middleware]
+- [Dependências Dev:]
+- [Sqlite3]
+- [Supertest]
+- [Jest 27.5.1]
+- [Ts-jest]
+- [Ts-node-dev]
+- [Typescript]
 
 A URL base da aplicação:
 https://api-music-club-shop.herokuapp.com/
